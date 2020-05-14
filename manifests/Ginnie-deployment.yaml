@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: Ginnieweb
+  labels:
+    app: Ginnie
+spec:
+  selector:
+    matchLabels:
+      app: Ginnie
+      tier: web
+  template:
+    metadata:
+      labels:
+        app: Ginnie
+        tier: web
+    spec:
+      containers:
+      - name: Ginnie-app
+        image: gcr.io/google-samples/Ginnie-app:1.0
+        ports:
+        - containerPort: 8080
